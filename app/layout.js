@@ -28,12 +28,11 @@ export async function generateMetadata() {
 
 export default function RootLayout({ children }) {
   return (
-    // 2. ATTACH THE FONT VARIABLE TO YOUR HTML TAG
     <html lang="en" className={syncopate.variable}>
       <head>
         <link
           rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap"
+          href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=clash-display@500,600,700&display=swap"
         />
       </head>
       <body className="antialiased font-sans">{children}</body>

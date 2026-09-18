@@ -23,8 +23,8 @@ module.exports = {
           "-apple-system",
           "sans-serif",
         ],
-        // THIS IS THE ONLY LINE THAT CHANGED 👇
         wide: ['var(--font-syncopate)', 'sans-serif'], 
+        logo: ['"Clash Display"', 'sans-serif'],
       },
     },
   },

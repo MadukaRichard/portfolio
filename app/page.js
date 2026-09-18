@@ -66,13 +66,15 @@ export default async function HomePage() {
 </h1>
           <p className="mt-2 text-accent font-medium">{renderJuniorNeutral(profile.tagline)}</p>
 
-          <p className="mt-6 text-neutral-400 leading-relaxed max-w-2xl">
-            {profile.bio}
-          </p>
+         <p 
+            className="mt-6 text-neutral-400 leading-relaxed max-w-2xl"
+            dangerouslySetInnerHTML={{ __html: profile.bio }}
+          />
           {profile.bioSecondary && (
-            <p className="mt-4 text-neutral-400 leading-relaxed max-w-2xl">
-              {profile.bioSecondary}
-            </p>
+            <p 
+              className="mt-4 text-neutral-400 leading-relaxed max-w-2xl"
+              dangerouslySetInnerHTML={{ __html: profile.bioSecondary }}
+            />
           )}
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
