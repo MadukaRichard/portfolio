@@ -14,6 +14,7 @@ const ProfileSchema = new mongoose.Schema(
     name: { type: String, default: "Your Name" },
     logoName: { type: String, default: "Dhukar" },
     role: { type: String, default: "Software Engineer" },
+    level: { type: String, default: "" },
     tagline: { type: String, default: "Frontend Engineer · Team Lead" },
     bio: {
       type: String,

@@ -8,7 +8,9 @@ const emptyForm = {
   summary: "",
   description: "",
   url: "",
+  image: "",
   tags: "",
+  stack: "",
   featured: true,
   order: 0,
 };
@@ -46,7 +48,9 @@ export default function AdminProjectsPage() {
       summary: project.summary,
       description: project.description,
       url: project.url,
+      image: project.image || "", // Load existing image when editing
       tags: (project.tags || []).join(", "),
+      stack: project.stack || "",
       featured: project.featured,
       order: project.order,
     });
@@ -119,9 +123,19 @@ export default function AdminProjectsPage() {
         <input placeholder="Short summary (shown in lists)" className={inputClass} value={form.summary} onChange={(e) => update("summary", e.target.value)} />
         <textarea placeholder="Full description (shown on detail page)" rows={4} className={inputClass} value={form.description} onChange={(e) => update("description", e.target.value)} />
         <input placeholder="External URL (optional)" className={inputClass} value={form.url} onChange={(e) => update("url", e.target.value)} />
-        <input placeholder="Tags, comma separated" className={inputClass} value={form.tags} onChange={(e) => update("tags", e.target.value)} />
+        
+        {/* New Image Input Field */}
+        <div>
+          <input placeholder="Preview Image URL (Optional)" className={inputClass} value={form.image} onChange={(e) => update("image", e.target.value)} />
+          <p className="text-xs text-neutral-600 mt-1">Image to display when hovering over the project link.</p>
+        </div>
 
-        <div className="flex items-center gap-6">
+        <input placeholder="Tags, comma separated" className={inputClass} value={form.tags} onChange={(e) => update("tags", e.target.value)} />
+        
+        {/* 👇 NEW Tech Stack Input Field 👇 */}
+        <input placeholder="Tech Stack (e.g., React, Node.js, MongoDB)" className={inputClass} value={form.stack} onChange={(e) => update("stack", e.target.value)} />
+
+        <div className="flex items-center gap-6 mt-4">
           <label className="flex items-center gap-2 text-sm text-neutral-400">
             <input type="checkbox" checked={form.featured} onChange={(e) => update("featured", e.target.checked)} />
             Featured on homepage
@@ -143,7 +157,6 @@ export default function AdminProjectsPage() {
           )}
         </div>
       </form>
-
       <div>
         <h2 className="text-sm font-medium text-neutral-400 uppercase tracking-wide mb-4">
           All projects

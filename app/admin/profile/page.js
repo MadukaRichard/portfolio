@@ -6,6 +6,7 @@ const emptyProfile = {
   name: "",
   logoName: "",
   role: "",
+  level: "", // Added the new level field here
   tagline: "",
   bio: "",
   bioSecondary: "",
@@ -128,6 +129,13 @@ export default function AdminProfilePage() {
         <Field label="Role">
           <input className={inputClass} value={profile.role} onChange={(e) => update("role", e.target.value)} />
         </Field>
+        
+        {/* 👇 NEW LEVEL FIELD ADDED HERE 👇 */}
+        <Field label="Level (Optional)" hint="This will appear in grey next to your role (e.g., - Junior).">
+          <input className={inputClass} value={profile.level} onChange={(e) => update("level", e.target.value)} placeholder="- Junior" />
+        </Field>
+        {/* 👆 ======================= 👆 */}
+
         <Field label="Tagline" hint="Short line shown under your name.">
           <input className={inputClass} value={profile.tagline} onChange={(e) => update("tagline", e.target.value)} />
         </Field>
