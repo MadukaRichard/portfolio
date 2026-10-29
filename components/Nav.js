@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Nav({ logoName }) {
   return (
-    <header className="border-b border-border/80">
+    <header className="sticky top-0 z-50 bg-neutral-950/80 backdrop-blur-md border-b border-border/80">
       {/* 
         Change px-3 back to px-4 (or whatever padding your hero section uses) 
         so the left and right edges align perfectly with the page content below.

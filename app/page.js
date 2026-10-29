@@ -119,12 +119,10 @@ export default async function HomePage() {
                   key={project.slug}
                   className="relative group border-b border-neutral-900 pb-6 last:border-none"
                 >
-                  <Link
-                    href={project.url || `/projects/${project.slug}`}
-                    target={project.url ? "_blank" : undefined}
-                    rel={project.url ? "noopener noreferrer" : undefined}
-                    className="block sm:w-2/3 pr-4" 
-                  >
+               <Link
+                      href={`/projects/${project.slug}`}
+                      className="block sm:w-2/3 pr-4" 
+                    >
                     <h3 className="text-neutral-100 font-medium group-hover:text-accent transition-colors">
                       {project.title}
                     </h3>
@@ -133,10 +131,17 @@ export default async function HomePage() {
                     </p>
                     
                     {/* 👇 NEW Tech Stack Display 👇 */}
-                    {project.stack && (
-                      <p className="text-xs font-mono text-neutral-500 mt-3">
-                        Stack: <span className="text-neutral-400">{project.stack}</span>
-                      </p>
+                   {project.stack && (
+                      <div className="flex flex-wrap gap-2 mt-4">
+                        {project.stack.split(',').map((tech, index) => (
+                          <span 
+                            key={index}
+                            className="inline-flex items-center rounded-full border border-accent/40 bg-accent/5 px-3 py-1 text-xs font-mono text-accent transition-colors group-hover:border-accent group-hover:bg-accent/10"
+                          >
+                            {tech.trim()}
+                          </span>
+                        ))}
+                      </div>
                     )}
                   </Link>
 
